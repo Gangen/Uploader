@@ -9,7 +9,7 @@ class ContentsController < ApplicationController
     end
 
     def create
-        upload_file = content_params[:file]
+        upload_file = params[:file]
         content = {}
         if upload_file != nil
             content[:filename] = upload_file.original_filename
@@ -22,5 +22,11 @@ class ContentsController < ApplicationController
         else
             flash[:error] = "not success"
         end
+    end
+
+    def show_content
+
+        @image = Image.find_by(:filename => params[:filename])
+        
     end
 end

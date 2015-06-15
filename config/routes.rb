@@ -1,5 +1,10 @@
 Uploader::Application.routes.draw do
     resources :contents
+    resources :contents do
+        member do
+            get 'show_content'
+        end
+    end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

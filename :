@@ -1,10 +1,7 @@
 Uploader::Application.routes.draw do
     resources :contents
-    resources :contents do
-        member do
-            get 'index'
-        end
-    end
+    get 'contents' => 'contents#index'
+    post 'contents/index' => 'contents/index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,6 +1,8 @@
 class ContentsController < ApplicationController
     def index
-        @contents = Content.limit(20)
+        @contents = Content.all
+        
+
     end
 
     def new
@@ -9,8 +11,17 @@ class ContentsController < ApplicationController
 
     def create
         upload_file = content_params[:file]
+        content = {}
         if upload_file != nil
             content[:filename] = upload_file.original_filename
             content[:file] = upload_file.read
         end
+        @content = Content.new(content)
+        if @content.save
+            flash[:success] = "success"
+            redirect_to @content
+        else
+            flash[:error] = "not success"
+        end
+    end
 end

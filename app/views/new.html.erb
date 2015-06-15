@@ -1,0 +1,4 @@
+<%= form_for(@content) do |f| %>
+    <%= f.file_field :file,accept: "content/mp4" %>
+    <%= f.submit "upload" %>
+<% end %>

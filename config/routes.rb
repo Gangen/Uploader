@@ -1,10 +1,10 @@
 Uploader::Application.routes.draw do
-    resources :contents
-    resources :contents do
-        member do
-            get 'show_content'
-        end
-    end
+    get 'contents/index'
+    get 'contents/new'
+    post 'contents' => 'contents#create'
+    get 'contents/show'
+        
+   
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

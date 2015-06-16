@@ -1,8 +1,9 @@
-<%= form_for @content, do |f| %>
-    <div class="field">
-        <%= f.file_field :upload_file %>
-    </div>
-    <div class="actions">
-        <%= f.submit "Upload" %>
-    </div>
-<% end %>
+<h1>File</h1>
+<p>upload file</p>
+<ul>
+    <% @contents.each do %>
+         <li>file_name : <%= @contents[:filename] %></li>
+         <li>file      : <%= @content[:file] %></li><br><br>
+    <% end %>
+</ul>
+

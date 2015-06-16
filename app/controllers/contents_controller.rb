@@ -1,14 +1,13 @@
 class ContentsController < ApplicationController
     def index
         @contents = Content.all
-        @content = Content.new
     end
 
     def new
         @content = Content.new
     end
 
-    def create
+    def create       
         upload_file = params[:file]
         content = {}
         if upload_file != nil
@@ -18,15 +17,15 @@ class ContentsController < ApplicationController
         @content = Content.new(content)
         if @content.save
             flash[:success] = "success"
-            redirect_to @content
+            redirect_to '/contents/index'
         else
             flash[:error] = "not success"
         end
     end
 
-    def show_content
+    def show
 
-        @image = Image.find_by(:filename => params[:filename])
+        @contents = Content.all
         
     end
 end

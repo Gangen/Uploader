@@ -1,0 +1,8 @@
+<h1>File</h1>
+<p>uploaded file</p>
+<ul>
+    <% @contents.each do |contents| %>
+        <li>file_name : <%= contents.filename %></li>
+        <li>file      : <%= contents.file %></li><br>
+    <% end %>
+</ul>
